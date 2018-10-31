@@ -1,0 +1,118 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file '/home/user/qtdev/QShodan/ui/mainwin.ui'
+#
+# Created by: PyQt5 UI code generator 5.7
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.resize(800, 600)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Maximum, QtWidgets.QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        self.centralWidget = QtWidgets.QWidget(MainWindow)
+        self.centralWidget.setObjectName("centralWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralWidget)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.tabWidget = QtWidgets.QTabWidget(self.centralWidget)
+        self.tabWidget.setObjectName("tabWidget")
+        self.tab_web = QtWidgets.QWidget()
+        self.tab_web.setObjectName("tab_web")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.tab_web)
+        self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.btn_home = QtWidgets.QPushButton(self.tab_web)
+        self.btn_home.setObjectName("btn_home")
+        self.horizontalLayout.addWidget(self.btn_home)
+        spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem)
+        self.btn_extract = QtWidgets.QPushButton(self.tab_web)
+        self.btn_extract.setObjectName("btn_extract")
+        self.horizontalLayout.addWidget(self.btn_extract)
+        self.btn_autoextract = QtWidgets.QPushButton(self.tab_web)
+        self.btn_autoextract.setCheckable(True)
+        self.btn_autoextract.setObjectName("btn_autoextract")
+        self.horizontalLayout.addWidget(self.btn_autoextract)
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+        self.webView = QtWebKitWidgets.QWebView(self.tab_web)
+        self.webView.setUrl(QtCore.QUrl("https://www.shodan.io/"))
+        self.webView.setObjectName("webView")
+        self.verticalLayout_2.addWidget(self.webView)
+        self.tabWidget.addTab(self.tab_web, "")
+        self.tab_export = QtWidgets.QWidget()
+        self.tab_export.setObjectName("tab_export")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.tab_export)
+        self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.list_export = QtWidgets.QListWidget(self.tab_export)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.list_export.sizePolicy().hasHeightForWidth())
+        self.list_export.setSizePolicy(sizePolicy)
+        self.list_export.setObjectName("list_export")
+        self.horizontalLayout_2.addWidget(self.list_export)
+        self.table_export = QtWidgets.QTableWidget(self.tab_export)
+        self.table_export.setObjectName("table_export")
+        self.table_export.setColumnCount(0)
+        self.table_export.setRowCount(0)
+        self.horizontalLayout_2.addWidget(self.table_export)
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.btn_clean = QtWidgets.QPushButton(self.tab_export)
+        self.btn_clean.setObjectName("btn_clean")
+        self.verticalLayout_3.addWidget(self.btn_clean)
+        self.btn_duplicates = QtWidgets.QPushButton(self.tab_export)
+        self.btn_duplicates.setObjectName("btn_duplicates")
+        self.verticalLayout_3.addWidget(self.btn_duplicates)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem1)
+        self.btn_save_csv = QtWidgets.QPushButton(self.tab_export)
+        self.btn_save_csv.setObjectName("btn_save_csv")
+        self.verticalLayout_3.addWidget(self.btn_save_csv)
+        self.horizontalLayout_2.addLayout(self.verticalLayout_3)
+        self.tabWidget.addTab(self.tab_export, "")
+        self.verticalLayout.addWidget(self.tabWidget)
+        MainWindow.setCentralWidget(self.centralWidget)
+        self.statusBar = QtWidgets.QStatusBar(MainWindow)
+        self.statusBar.setObjectName("statusBar")
+        MainWindow.setStatusBar(self.statusBar)
+
+        self.retranslateUi(MainWindow)
+        self.tabWidget.setCurrentIndex(1)
+        self.btn_clean.released.connect(self.table_export.clearContents)
+        self.btn_clean.released.connect(self.list_export.clear)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "QShodan"))
+        self.btn_home.setText(_translate("MainWindow", "Home"))
+        self.btn_extract.setText(_translate("MainWindow", "Extraer IPs de esta pagina"))
+        self.btn_autoextract.setText(_translate("MainWindow", "AutoExtraer"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_web), _translate("MainWindow", "Buscar"))
+        self.btn_clean.setText(_translate("MainWindow", "Limpiar Lista"))
+        self.btn_duplicates.setText(_translate("MainWindow", "Borrar Duplicados"))
+        self.btn_save_csv.setText(_translate("MainWindow", "Save CSV..."))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_export), _translate("MainWindow", "Exportar"))
+
+from PyQt5 import QtWebKitWidgets
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
+
